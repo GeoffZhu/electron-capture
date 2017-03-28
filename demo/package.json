@@ -5,6 +5,7 @@
     "start": "electron ./main.js"
   },
   "dependencies": {
-    "electron": "^1.6.2"
+    "electron": "^1.6.2",
+    "electron-capture": "^1.0.0"
   }
 }
