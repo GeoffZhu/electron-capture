@@ -2,14 +2,16 @@
 
 > A small webpage capture extension for electron Application. Get a screenshot of the full webpage.
 
-![](http://o80ronwlu.bkt.clouddn.com/electron-capture.gif)
+[![npm version](https://img.shields.io/npm/v/electron-capture.svg)](https://www.npmjs.com/package/electron-capture)
 
 ### Why I create this repo
 I tried a lots of npm packages, but no one can add the feature (full page screenshot) for my electron-application. So I code it.
 
 ### Install
 
+``` sh
 npm install electron-capture --save
+```
 
 ### Usage
 
