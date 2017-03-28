@@ -1,0 +1,27 @@
+{
+  "name": "electron-capture",
+  "description": "A small webpage capture extension for electron Application. Get a screenshot of the full webpage.",
+  "version": "1.0.0",
+  "author": "geoffzhu1992@gmail.com",
+  "main": "src/main.js",
+  "scripts": {
+    "dev": "electron --debug ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GeoffZhu/electron-capture"
+  },
+  "dependencies": {
+    "electron": "^1.6.2",
+    "pixelsmith": "^2.1.1"
+  },
+  "keywords": [
+    "electron",
+    "capture",
+    "screenshot",
+    "electron-extension"
+  ],
+  "bugs": {
+    "url": "https://github.com/GeoffZhu/electron-capture/issues"
+  }
+}
