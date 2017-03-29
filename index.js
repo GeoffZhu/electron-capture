@@ -17,12 +17,12 @@ function createWindow () {
         }
     })
     mainWindow.loadURL('https://www.google.com/')
-    // mainWindow.openDevTools()
+    mainWindow.openDevTools()
     electronCapture.init(mainWindow)
     electronCapture.start(mainWindow)
 
     mainWindow.on('capture-done', function(resultStream){
-      resultStream.pipe(fs.createWriteStream('com.png'));
+      resultStream.pipe(fs.createWriteStream(Math.random() + 'com.png'));
     })
 }
 app.on('ready', createWindow)

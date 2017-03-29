@@ -2,7 +2,7 @@ const fs = require('fs')
 const Pixelsmith = require('pixelsmith')
 const { ipcMain } = require('electron')
 
-let tempDir = './.temp_capture'
+let tempDir = './.temp_capture', canvas = null
 
 function fsExistsSync(path) {
   try {
@@ -65,7 +65,7 @@ module.exports.init = function (targetWindow) {
         })
         scrollBarWidth = canvasWidth/contentSize.width*contentSize.scrollBarWidth
         // Create a canvas that fits our images
-        var canvas = pixelsmith.createCanvas(canvasWidth - scrollBarWidth, canvasHeight);
+        canvas = pixelsmith.createCanvas(canvasWidth - scrollBarWidth, canvasHeight);
         // Add the images to our canvas 
         imgs.forEach(function(img, index){
           canvas.addImage(imgs[index], 0, y);
@@ -79,6 +79,7 @@ module.exports.init = function (targetWindow) {
 }
 
 module.exports.start = function (targetWindow) {
+  canvas = null
   targetWindow.webContents.executeJavaScript(`
       var ipcRender = require('electron').ipcRenderer;
       ipcRender.send('start-capture');
