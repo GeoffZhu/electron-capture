@@ -1,8 +1,7 @@
 const Electron = require('electron')
 const fs = require('fs')
 const { BrowserWindow, app } = require('electron')
-const electronCapture = require('./src/main')
-
+require('./src/main')
 
 let mainWindow = null
 
@@ -18,13 +17,13 @@ function createWindow () {
     })
     mainWindow.loadURL('https://www.google.com/')
     mainWindow.openDevTools()
-    electronCapture.init(mainWindow)
-    electronCapture.start(mainWindow)
 
-    mainWindow.on('capture-done', function(resultStream){
-      resultStream.pipe(fs.createWriteStream(Math.random() + 'com.png'));
+    mainWindow.captureFullPage(function(imageStream){
+      // return image Stream
+      imageStream.pipe(fs.createWriteStream('example.png'));
     })
 }
+
 app.on('ready', createWindow)
 
 app.on('window-all-closed', () => {

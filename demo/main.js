@@ -1,7 +1,7 @@
 const fs = require('fs')
 const Electron = require('electron')
 const { BrowserWindow, app } = require('electron')
-const electronCapture = require('electron-capture')
+require('electron-capture')
 
 let mainWindow = null
 
@@ -15,11 +15,12 @@ function createWindow () {
         }
     })
     mainWindow.loadURL('https://www.google.com/')
-    // mainWindow.openDevTools()
-    electronCapture.init(mainWindow)
-    electronCapture.start(mainWindow)
-    mainWindow.on('capture-done', function(resultStream){
-      resultStream.pipe(fs.createWriteStream('com.png'));
+    // init BrowserWindow
+
+    // when need full capture, call function captureFullPage
+    mainWindow.captureFullPage(function(imageStream){
+      // return image Stream
+      imageStream.pipe(fs.createWriteStream('example.png'));
     })
 }
 
